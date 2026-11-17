@@ -1,6 +1,6 @@
 {
- "name": "سجل التمارين",
- "short_name": "تمارين",
+ "name": "Ironlog",
+ "short_name": "Ironlog",
  "id": "/",
  "description": "سجل بسيط لتسجيل الأوزان والعدات ومتابعة خطة التمارين والتقدم في الجيم.",
  "lang": "ar",
@@ -37,7 +37,7 @@
    "sizes": "600x1000",
    "type": "image/png",
    "form_factor": "narrow",
-   "label": "الشاشة الرئيسية لسجل التمارين"
+   "label": "الشاشة الرئيسية لتطبيق Ironlog"
   }
  ]
 }
