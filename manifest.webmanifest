@@ -1,6 +1,7 @@
 {
  "name": "سجل التمارين",
  "short_name": "تمارين",
+ "id": "/",
  "description": "سجل بسيط لتسجيل الأوزان والعدات ومتابعة خطة التمارين والتقدم في الجيم.",
  "lang": "ar",
  "dir": "rtl",
@@ -28,6 +29,15 @@
    "sizes": "512x512",
    "type": "image/png",
    "purpose": "maskable"
+  }
+ ],
+ "screenshots": [
+  {
+   "src": "screenshot-home.png",
+   "sizes": "600x1000",
+   "type": "image/png",
+   "form_factor": "narrow",
+   "label": "الشاشة الرئيسية لسجل التمارين"
   }
  ]
 }
