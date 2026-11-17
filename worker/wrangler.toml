@@ -1,0 +1,8 @@
+name = "ironlog-gemini-proxy"
+main = "ironlog-ai.js"
+compatibility_date = "2026-11-18"
+workers_dev = true
+
+[vars]
+GEMINI_MODEL = "gemini-3.5-flash-lite"
+
