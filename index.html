@@ -15,7 +15,8 @@
 :root{--bg:#0b1320;--card:#141f33;--card2:#1b2a44;--line:#263856;--t:#eef2f8;--m:#8fa0ba;--a:#f5c542;--ink:#1a1400;--up:#4cc38a;--dn:#ff6b6b;--bg-overlay:transparent;--bg-image:none}
 :root[data-theme="dark"]{color-scheme:dark}:root[data-theme="light"]{color-scheme:light;--bg:#f3f5f9;--card:#fff;--card2:#edf1f7;--line:#d8dfeb;--t:#132036;--m:#62708a;--a:#cf8f00;--ink:#171300;--up:#128a55;--dn:#cf3f4d}
 *{box-sizing:border-box}
-body{margin:0;background-color:var(--bg);background-image:linear-gradient(var(--bg-overlay),var(--bg-overlay)),var(--bg-image);background-size:cover;background-position:center;background-attachment:fixed;background-repeat:no-repeat;color:var(--t);font:16px/1.5 "Inter","IBM Plex Sans Arabic","Noto Sans Arabic","Segoe UI",Tahoma,system-ui,sans-serif;padding:env(safe-area-inset-top) 0 calc(78px + env(safe-area-inset-bottom))}
+body{position:relative;isolation:isolate;margin:0;background:transparent;color:var(--t);font:16px/1.5 "Inter","IBM Plex Sans Arabic","Noto Sans Arabic","Segoe UI",Tahoma,system-ui,sans-serif;padding:env(safe-area-inset-top) 0 calc(78px + env(safe-area-inset-bottom))}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background-color:var(--bg);background-image:linear-gradient(var(--bg-overlay),var(--bg-overlay)),var(--bg-image);background-size:cover;background-position:center;background-repeat:no-repeat}
 h1,h2,h3,button,input,select{font-family:"Inter","IBM Plex Sans Arabic","Noto Sans Arabic","Segoe UI",Tahoma,system-ui,sans-serif}
 svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
 header{padding:16px 14px 6px;display:flex;align-items:center;gap:10px;max-width:560px;margin:auto}
