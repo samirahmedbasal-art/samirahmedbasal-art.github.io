@@ -1,6 +1,6 @@
 # Ironlog Gemini Worker
 
-This optional Cloudflare Worker keeps the Google Gemini API key on the server. It accepts only the two analysis routes used by Ironlog, requires a separate access token, restricts browser requests to the Ironlog GitHub Pages origin, and does not store request bodies or responses.
+This optional Cloudflare Worker keeps the Google Gemini API key on the server. It accepts InBody report extraction and the two analysis routes used by Ironlog, requires a separate access token, restricts browser requests to the Ironlog GitHub Pages origin, and does not store request bodies or responses.
 
 ## Deploy on the Cloudflare free plan
 

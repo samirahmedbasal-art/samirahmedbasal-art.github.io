@@ -36,12 +36,12 @@ function validImage(image) {
     /^[A-Za-z0-9+/]+={0,2}$/.test(image.data);
 }
 
-async function generate(env, contents) {
+async function generate(env, contents, jsonMode = false) {
   const model = env.GEMINI_MODEL || MODEL;
   const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`, {
     method: "POST",
     headers: { "content-type": "application/json", "x-goog-api-key": env.GEMINI_API_KEY },
-    body: JSON.stringify({ contents, generationConfig: { temperature: 0.25, maxOutputTokens: 700 } })
+    body: JSON.stringify({ contents, generationConfig: { temperature: jsonMode ? 0 : 0.25, maxOutputTokens: jsonMode ? 300 : 700, ...(jsonMode ? { responseMimeType: "application/json" } : {}) } })
   });
   const data = await response.json().catch(() => ({}));
   if (!response.ok) return { error: data?.error?.message || "Gemini could not complete the analysis.", status: response.status };
@@ -63,7 +63,23 @@ export default {
     try { input = await request.json(); } catch { return json({ error: "Invalid JSON." }, 400, headers); }
     const route = new URL(request.url).pathname;
     let contents;
-    if (route === "/analyze/body") {
+    if (route === "/extract/inbody") {
+      if (!validImage(input.image)) return json({ error: "A supported report image is required." }, 400, headers);
+      const language = input.language === "en" ? "English" : "Arabic";
+      contents = [{ role: "user", parts: [
+        { text: `Read only measurements that are visibly printed on this InBody/body composition report. Do not estimate missing values. Reply in ${language} for any internal notes, but output only one JSON object with exactly these keys: date (ISO YYYY-MM-DD or null), weight (kg number or null), fatPct (body fat percentage number or null), muscle (skeletal muscle mass kg number or null), fat (body fat mass kg number or null), visceral (visceral fat level number or null). Use null for anything unreadable or absent. Do not include markdown or extra keys.` },
+        { inline_data: { mime_type: input.image.mimeType, data: input.image.data } }
+      ] }];
+      const result = await generate(env, contents, true);
+      if (result.error) return json({ error: result.status === 429 ? "Gemini free-tier limit reached. Try later." : result.error }, result.status >= 400 && result.status < 600 ? result.status : 502, headers);
+      let extraction;
+      try { extraction = JSON.parse(result.text); } catch { return json({ error: "Gemini could not read the report. Try a clearer photo." }, 502, headers); }
+      if (!extraction || typeof extraction !== "object" || Array.isArray(extraction)) return json({ error: "Gemini returned unreadable report data." }, 502, headers);
+      const keys = ["weight", "fatPct", "muscle", "fat", "visceral"];
+      for (const key of keys) if (extraction[key] !== null && (!Number.isFinite(extraction[key]) || extraction[key] < 0)) extraction[key] = null;
+      if (typeof extraction.date !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(extraction.date)) extraction.date = null;
+      return json({ extraction: Object.fromEntries(["date", ...keys].map(key => [key, extraction[key] ?? null])) }, 200, headers);
+    } else if (route === "/analyze/body") {
       if (!validMeasurements(input.measurements)) return json({ error: "Invalid measurement history." }, 400, headers);
       const language = input.language === "en" ? "English" : "Arabic";
       contents = [{ role: "user", parts: [{ text: `Review these InBody/body-composition measurements in chronological order and reply in ${language}. Give: (1) a short trend summary, (2) 2-3 practical training/recovery/habit actions, and (3) one measurement-context caveat. Do not diagnose disease, prescribe supplements or medication, shame appearance, or infer unstated facts. State that InBody estimates vary with hydration and measurement conditions.\n\nMeasurements JSON:\n${JSON.stringify(input.measurements)}` }] }];
