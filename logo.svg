@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" fill="none">
+  <defs>
+    <linearGradient id="steel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F5F7F8"/>
+      <stop offset=".16" stop-color="#C9D1D8"/>
+      <stop offset=".39" stop-color="#7E8995"/>
+      <stop offset=".54" stop-color="#E5E9EC"/>
+      <stop offset=".76" stop-color="#8995A1"/>
+      <stop offset="1" stop-color="#56616D"/>
+    </linearGradient>
+    <linearGradient id="steelSide" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#313D49"/>
+      <stop offset=".28" stop-color="#9BA6B0"/>
+      <stop offset=".56" stop-color="#E0E5E9"/>
+      <stop offset=".8" stop-color="#6E7A86"/>
+      <stop offset="1" stop-color="#36424F"/>
+    </linearGradient>
+    <linearGradient id="navy" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#274764"/>
+      <stop offset=".48" stop-color="#10263D"/>
+      <stop offset="1" stop-color="#071522"/>
+    </linearGradient>
+    <linearGradient id="champagne" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F4DDA7"/>
+      <stop offset=".34" stop-color="#D1AE6D"/>
+      <stop offset=".62" stop-color="#A77E3D"/>
+      <stop offset="1" stop-color="#E1C17F"/>
+    </linearGradient>
+    <filter id="depth" x="80" y="190" width="870" height="640" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="16" result="blur"/>
+      <feOffset dy="22" result="offset"/>
+      <feColorMatrix in="offset" type="matrix" values="0 0 0 0 0.008 0 0 0 0 0.035 0 0 0 0 0.065 0 0 0 .46 0" result="shadow"/>
+      <feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softShadow" x="440" y="255" width="500" height="520" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="8" result="blur"/>
+      <feOffset dy="10" result="offset"/>
+      <feComponentTransfer><feFuncA type="linear" slope=".35"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <g filter="url(#depth)">
+    <!-- Bar shaft -->
+    <path d="M330 487H575V537H330Z" fill="#23374A" opacity=".72" transform="translate(0 10)"/>
+    <path d="M326 475H586V529H326Z" fill="url(#steelSide)" stroke="#4C5965" stroke-width="7"/>
+    <path d="M344 482H568" stroke="#FFFFFF" stroke-opacity=".82" stroke-width="6" stroke-linecap="round"/>
+    <path d="M342 519H566" stroke="#394856" stroke-opacity=".72" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- Left weight plates with machined bevels -->
+    <path d="M197 412Q197 392 217 392H248Q268 392 268 412V592Q268 612 248 612H217Q197 612 197 592Z" fill="#15283B" opacity=".8" transform="translate(0 12)"/>
+    <path d="M178 396Q178 378 196 378H228Q246 378 246 396V594Q246 612 228 612H196Q178 612 178 594Z" fill="url(#steel)" stroke="#485562" stroke-width="8"/>
+    <path d="M191 398V590" stroke="#FFFFFF" stroke-opacity=".82" stroke-width="7" stroke-linecap="round"/>
+    <path d="M232 401V588" stroke="#33414F" stroke-opacity=".6" stroke-width="7" stroke-linecap="round"/>
+
+    <path d="M247 343Q247 324 266 324H313Q332 324 332 343V647Q332 666 313 666H266Q247 666 247 647Z" fill="#11263A" opacity=".82" transform="translate(0 14)"/>
+    <path d="M231 330Q231 310 251 310H297Q317 310 317 330V638Q317 658 297 658H251Q231 658 231 638Z" fill="url(#steel)" stroke="#4D5B68" stroke-width="9"/>
+    <path d="M247 333V635" stroke="#FFFFFF" stroke-opacity=".76" stroke-width="8" stroke-linecap="round"/>
+    <path d="M299 335V633" stroke="#344351" stroke-opacity=".62" stroke-width="8" stroke-linecap="round"/>
+
+    <path d="M148 440Q148 423 165 423H187V565H165Q148 565 148 548Z" fill="url(#steelSide)" stroke="#475562" stroke-width="8"/>
+    <path d="M158 440V546" stroke="#FFFFFF" stroke-opacity=".7" stroke-width="6" stroke-linecap="round"/>
+
+    <!-- Right circular progress ring -->
+    <g filter="url(#softShadow)">
+      <circle cx="704" cy="502" r="203" fill="url(#navy)" stroke="#344658" stroke-width="18"/>
+      <circle cx="704" cy="502" r="181" stroke="#071522" stroke-width="42"/>
+      <circle cx="704" cy="502" r="181" stroke="url(#steel)" stroke-width="30"/>
+      <path d="M580 370A181 181 0 0 1 829 377" stroke="url(#champagne)" stroke-width="14" stroke-linecap="round"/>
+      <path d="M807 347L856 368L816 400Z" fill="url(#champagne)" stroke="#795B2F" stroke-width="6" stroke-linejoin="round"/>
+      <circle cx="704" cy="502" r="134" fill="url(#navy)" stroke="#9CA7B2" stroke-opacity=".6" stroke-width="7"/>
+      <path d="M675 429L782 502L675 575Z" fill="url(#steel)" stroke="#F5F7F8" stroke-width="9" stroke-linejoin="round"/>
+      <path d="M691 448L760 502L691 552Z" fill="url(#champagne)" opacity=".94"/>
+      <path d="M683 438L773 500" stroke="#FFFFFF" stroke-opacity=".72" stroke-width="6" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>
