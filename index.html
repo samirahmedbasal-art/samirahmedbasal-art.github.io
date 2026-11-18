@@ -8,11 +8,15 @@
 <meta name="theme-color" content="#0b1320">
 <link rel="icon" href="icon-192.png">
 <meta name="mobile-web-app-capable" content="yes">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#0b1320;--card:#141f33;--card2:#1b2a44;--line:#263856;--t:#eef2f8;--m:#8fa0ba;--a:#f5c542;--ink:#1a1400;--up:#4cc38a;--dn:#ff6b6b}
 :root[data-theme="dark"]{color-scheme:dark}:root[data-theme="light"]{color-scheme:light;--bg:#f3f5f9;--card:#fff;--card2:#edf1f7;--line:#d8dfeb;--t:#132036;--m:#62708a;--a:#cf8f00;--ink:#171300;--up:#128a55;--dn:#cf3f4d}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--t);font:16px/1.5 "Noto Sans Arabic","Segoe UI",Tahoma,system-ui,sans-serif;padding:env(safe-area-inset-top) 0 calc(78px + env(safe-area-inset-bottom))}
+body{margin:0;background:var(--bg);color:var(--t);font:16px/1.5 "Inter","IBM Plex Sans Arabic","Noto Sans Arabic","Segoe UI",Tahoma,system-ui,sans-serif;padding:env(safe-area-inset-top) 0 calc(78px + env(safe-area-inset-bottom))}
+h1,h2,h3,button,input,select{font-family:"Inter","IBM Plex Sans Arabic","Noto Sans Arabic","Segoe UI",Tahoma,system-ui,sans-serif}
 svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
 header{padding:16px 14px 6px;display:flex;align-items:center;gap:10px;max-width:560px;margin:auto}
 header .logo{width:42px;height:42px;border-radius:12px;background:var(--a);color:var(--ink);display:grid;place-items:center}
@@ -79,6 +83,7 @@ select{font:inherit;color:var(--t);background:var(--card2);border:1px solid var(
 #qrv{position:fixed;inset:0;z-index:20;background:#fff;color:#111;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px}#qrv[hidden]{display:none}#qrv img{width:min(88vw,420px);height:auto}#qrv button{color:#111;background:#eee;border-color:#ccc}
 .x{padding:9px}
 .inbody-photo-action{margin:8px 0}.inbody-photo-action .pri{width:100%;min-height:54px}.prefs-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field{display:grid;gap:5px;min-width:0}.field label,.field .label{font-size:.82rem;font-weight:700;color:var(--m)}.field input,.field select{width:100%;min-width:0}.section-title{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}.section-title h3{margin:0}.eyebrow{color:var(--a);font-size:.75rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.schedule-row{display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}.schedule-row:last-child{border:0}.schedule-row input[type=time]{width:104px;padding:8px}.schedule-row input[type=checkbox]{width:20px;height:20px;accent-color:var(--a)}.switch{display:flex;align-items:center;gap:10px}.switch input{width:20px;height:20px;accent-color:var(--a)}.badge{border:1px solid var(--line);border-radius:999px;padding:4px 9px;color:var(--m);font-size:.75rem}.metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.metric{background:var(--card2);border:1px solid var(--line);border-radius:14px;padding:12px}.metric strong{display:block;font-size:1.35rem}.metric span{font-size:.8rem;color:var(--m)}.insight{border-inline-start:3px solid var(--up);padding:10px 12px;background:color-mix(in srgb,var(--up) 10%,var(--card));border-radius:10px;margin-top:8px}.photo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.photo-card{overflow:hidden;padding:8px}.photo-card img{width:100%;height:220px;object-fit:cover;border-radius:10px;background:var(--card2)}.ai-photo{width:100%;margin-top:8px;font-size:.82rem;padding:9px 6px}.ai-result{white-space:pre-wrap;line-height:1.65;font-size:.9rem;margin-top:8px}.barcode-wrap{background:#fff;color:#111;border-radius:14px;padding:14px;text-align:center;overflow:auto}.barcode-wrap svg{width:min(100%,420px);height:110px}.seg-wrap{display:flex;gap:8px;flex-wrap:wrap}.modal{position:fixed;inset:0;z-index:30;background:#050a13d9;display:grid;place-items:center;padding:18px}.modal[hidden]{display:none}.modal-card{width:min(100%,480px);background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px}.quiet{color:var(--m);font-size:.85rem}.btn-quiet{background:transparent}.danger{color:var(--dn)}@media(max-width:420px){.prefs-grid{grid-template-columns:1fr}.schedule-row input[type=time]{width:92px}.photo-card img{height:170px}}
+.palette-swatches{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:8px}.palette-choice{display:flex;align-items:center;justify-content:flex-start;gap:9px;min-height:44px;text-align:start;padding:8px 10px}.palette-choice[aria-pressed="true"]{border-color:var(--a);box-shadow:0 0 0 1px var(--a) inset}.palette-dot{width:20px;height:20px;flex:none;border-radius:50%;background:var(--swatch);border:1px solid color-mix(in srgb,var(--t) 24%,transparent)}.background-controls{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:end;margin-top:12px}.background-controls input[type=color]{width:64px;height:44px;padding:4px}.palette-help{margin:4px 0 0;color:var(--m);font-size:.78rem}@media(max-width:420px){.palette-swatches{grid-template-columns:1fr 1fr}.background-controls{grid-template-columns:1fr auto}}
 </style>
 </head>
 <body>
@@ -145,9 +150,20 @@ if(!S||!S.days){
   try{const o=JSON.parse(localStorage.getItem("gymlog-v2"));if(o&&o.days){S.bk=o.bk||"";o.ss.filter(x=>x.v!=null).forEach(x=>S.ss.push(x));
     Object.keys(o.days).forEach(k=>o.days[k].forEach(oe=>{const e=S.days[k]&&S.days[k].find(x=>x.n==oe.n);if(!e)return;e.alt=oe.alt||"";oe.h.filter(p=>p.s).forEach(p=>e.h.push(p));e.h.sort((x,y)=>x.d<y.d?-1:1)}))}}catch(e){}
 }
+const COLOR_PALETTES={
+  iron:{ar:"حديد وشامبين",en:"Iron & Champagne",dark:"#101927",light:"#F4F1E9",accent:"#C6A66B",accentLight:"#8D6826"},
+  sage:{ar:"مريمي",en:"Sage",dark:"#172421",light:"#EEF2ED",accent:"#85A597",accentLight:"#527E70"},
+  forest:{ar:"غابة",en:"Forest",dark:"#12211D",light:"#EEF2EA",accent:"#A7B58C",accentLight:"#607A3E"},
+  charcoal:{ar:"فحمي دافئ",en:"Warm charcoal",dark:"#1B1A18",light:"#F2EEE7",accent:"#D0A16B",accentLight:"#8B5C20"},
+  petrol:{ar:"بترولي",en:"Petrol",dark:"#12242A",light:"#EDF2F2",accent:"#78A8AA",accentLight:"#39777A"}
+};
+const validHex=x=>typeof x==="string"&&/^#[0-9a-f]{6}$/i.test(x);
+const colorMix=(a,b,t)=>{const x=a.match(/[\da-f]{2}/gi).map(v=>parseInt(v,16)),y=b.match(/[\da-f]{2}/gi).map(v=>parseInt(v,16));return "#"+x.map((v,i)=>Math.round(v*(1-t)+y[i]*t).toString(16).padStart(2,"0")).join("")};
 function normalizeState(state){
   state.plan=state.plan||{6:"c",0:"b",1:"r",2:"s",3:"r",4:"l",5:"r"};state.g=state.g||"m";
-  state.prefs=Object.assign({language:"ar",theme:"dark",displayName:"",memberCode:"",customGymHours:false,gymHours:Array.from({length:7},()=>({enabled:false,open:"09:00",close:"21:00"}))},state.prefs||{});
+  state.prefs=Object.assign({language:"ar",theme:"dark",palette:"iron",background:"",displayName:"",memberCode:"",customGymHours:false,gymHours:Array.from({length:7},()=>({enabled:false,open:"09:00",close:"21:00"}))},state.prefs||{});
+  if(!COLOR_PALETTES[state.prefs.palette])state.prefs.palette="iron";
+  if(!validHex(state.prefs.background))state.prefs.background="";
   state.prefs.gymHours=Array.from({length:7},(_,i)=>Object.assign({enabled:false,open:"09:00",close:"21:00"},state.prefs.gymHours?.[i]||{}));
   state.body=state.body||{measurements:[]};state.body.measurements=Array.isArray(state.body.measurements)?state.body.measurements:[];
   return state;
@@ -165,7 +181,9 @@ function translateText(value){let out=value.replace(/من (\d+) يوم/g,"$1 day
 const originalTextNodes=new WeakMap(),originalAttributes=new WeakMap();
 function applyPrefs(){
   const p=S.prefs||{};document.documentElement.dataset.theme=p.theme||"dark";document.documentElement.lang=p.language||"ar";document.documentElement.dir=p.language=="en"?"ltr":"rtl";
-  const meta=document.querySelector('meta[name="theme-color"]');if(meta)meta.content=p.theme=="light"?"#f3f5f9":"#0b1320";
+  const palette=COLOR_PALETTES[p.palette]||COLOR_PALETTES.iron,bg=validHex(p.background)?p.background:(p.theme=="light"?palette.light:palette.dark),lum=bg.match(/[\da-f]{2}/gi).map(v=>parseInt(v,16)/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4),isLight=.2126*lum[0]+.7152*lum[1]+.0722*lum[2]>.179,fg=isLight?"#18202A":"#F2F3F6";
+  const root=document.documentElement.style;root.setProperty("--bg",bg);root.setProperty("--t",fg);root.setProperty("--card",colorMix(bg,isLight?"#FFFFFF":"#FFFFFF",isLight?.76:.065));root.setProperty("--card2",colorMix(bg,isLight?"#17212A":"#FFFFFF",isLight?.045:.115));root.setProperty("--line",colorMix(bg,fg,.19));root.setProperty("--m",colorMix(bg,fg,.62));root.setProperty("--a",p.theme=="light"?palette.accentLight:palette.accent);root.setProperty("--ink","#191710");
+  const meta=document.querySelector('meta[name="theme-color"]');if(meta)meta.content=bg;
   const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let node;while(node=walker.nextNode()){if(node.parentElement&&["SCRIPT","STYLE"].includes(node.parentElement.tagName))continue;if(!originalTextNodes.has(node))originalTextNodes.set(node,node.nodeValue);const source=originalTextNodes.get(node);node.nodeValue=p.language=="en"?translateText(source):source}
   document.querySelectorAll("[placeholder],[aria-label],[title]").forEach(el=>{let originals=originalAttributes.get(el);if(!originals){originals={};originalAttributes.set(el,originals)}["placeholder","aria-label","title"].forEach(a=>{if(!el.hasAttribute(a)&&!(a in originals))return;if(!(a in originals))originals[a]=el.getAttribute(a);if(originals[a]!=null)el.setAttribute(a,p.language=="en"?translateText(originals[a]):originals[a])})});
 }
@@ -190,7 +208,9 @@ function settingsPage(){
   return `<div class="card"><span class="eyebrow">IRONLOG · ${L("ملفك الشخصي","YOUR WORKSPACE")}</span><h2>${L("إعداداتك","Your settings")}</h2><p class="quiet">${L("خصص شكل التطبيق ومواعيدك. التفضيلات والرمز محفوظة على هذا الجهاز.","Personalize your app, schedule, and membership code. Preferences are stored on this device.")}</p>
    <div class="prefs-grid"><div class="field"><label for="pref-name">${L("اسم العرض","Display name")}</label><input id="pref-name" data-pref="displayName" maxlength="32" placeholder="${L("الاسم الذي تفضله","How should we address you?")}" value="${esc(p.displayName)}"></div>
    <div class="field"><label for="pref-language">${L("اللغة","Language")}</label><select id="pref-language" data-pref="language"><option value="ar"${p.language=="ar"?" selected":""}>العربية</option><option value="en"${p.language=="en"?" selected":""}>English</option></select></div>
-   <div class="field"><label>${L("المظهر","Appearance")}</label><button class="btn-quiet" data-a="theme">${p.theme=="light"?"☀️ "+L("فاتح","Light"):"🌙 "+L("داكن","Dark")} · ${L("تغيير","Change")}</button></div></div></div>
+   <div class="field"><label>${L("المظهر","Appearance")}</label><button class="btn-quiet" data-a="theme">${p.theme=="light"?"☀️ "+L("فاتح","Light"):"🌙 "+L("داكن","Dark")} · ${L("تغيير","Change")}</button></div></div>
+   <div class="field" style="margin-top:14px"><span class="label">${L("لوحات الألوان","Color palettes")}</span><div class="palette-swatches" role="group" aria-label="${L("لوحات الألوان","Color palettes")}">${Object.entries(COLOR_PALETTES).map(([id,x])=>`<button type="button" class="palette-choice" data-a="palette" data-palette="${id}" aria-pressed="${p.palette===id&&!p.background}"><span class="palette-dot" style="--swatch:${x[p.theme=="light"?"light":"dark"]}"></span>${L(x.ar,x.en)}</button>`).join("")}</div></div>
+   <div class="background-controls"><div class="field"><label for="pref-background">${L("لون الخلفية","Background color")}</label><input id="pref-background" type="color" value="${validHex(p.background)?p.background:(p.theme=="light"?COLOR_PALETTES[p.palette].light:COLOR_PALETTES[p.palette].dark)}" aria-label="${L("اختر لون الخلفية","Choose background color")}"></div><button type="button" class="btn-quiet" data-a="background-reset">${L("استعادة اللون","Reset color")}</button></div><p class="palette-help">${L("اختر لونًا مخصصًا أو نمطًا جاهزًا. اختيارك يُحفظ على هذا الجهاز.","Choose any custom color or a preset. Your choice is saved on this device.")}</p></div>
   <div class="card"><div class="section-title"><h3>${L("مواعيد الجيم","Gym schedule")}</h3><span class="badge">${L("اختياري","OPTIONAL")}</span></div><p class="quiet">${L("أضف ساعات عمل ناديك. عند تفعيل هذا الخيار ستظهر المواعيد هنا بدل الجدول الافتراضي.","Set your gym's opening hours. When enabled, these replace the default schedule.")}</p>
    <label class="switch"><input type="checkbox" data-pref="customGymHours"${p.customGymHours?" checked":""}>${L("استخدم مواعيدي المخصصة","Use my custom hours")}</label>
    <div>${order.map(d=>{const h=p.gymHours[d]||{enabled:false,open:"09:00",close:"21:00"};return `<div class="schedule-row"><label class="switch"><input type="checkbox" data-gym="enabled" data-day="${d}"${h.enabled?" checked":""} ${p.customGymHours?"":"disabled"}>${WEEKDAYS[langs][d]}</label><input type="time" aria-label="${L("يفتح","Opens")}" data-gym="open" data-day="${d}" value="${h.open}" ${p.customGymHours&&h.enabled?"":"disabled"}><input type="time" aria-label="${L("يغلق","Closes")}" data-gym="close" data-day="${d}" value="${h.close}" ${p.customGymHours&&h.enabled?"":"disabled"}></div>`}).join("")}</div>
@@ -488,7 +508,7 @@ async function pdf(mode){
 }
 
 document.addEventListener("input",ev=>{
-  const t=ev.target;if(t.dataset.pref){if(t.type=="checkbox")return;S.prefs[t.dataset.pref]=t.value;save();if(t.dataset.pref=="memberCode")drawMemberBarcode();if(t.dataset.pref=="displayName")document.getElementById("hd").textContent=(t.value?t.value+" · ":"")+(S.prefs.language=="en"?"Today ":"النهاردة ")+fd(iso());return}
+  const t=ev.target;if(t.id=="pref-background"){if(validHex(t.value)){S.prefs.background=t.value;save();applyPrefs()}return}if(t.dataset.pref){if(t.type=="checkbox")return;S.prefs[t.dataset.pref]=t.value;save();if(t.dataset.pref=="memberCode")drawMemberBarcode();if(t.dataset.pref=="displayName")document.getElementById("hd").textContent=(t.value?t.value+" · ":"")+(S.prefs.language=="en"?"Today ":"النهاردة ")+fd(iso());return}
   const f=t.dataset.f;if(!f)return;
   const e=S.days[S.cur][+t.dataset.i];
   if(f=="w"||f=="r")e.sets[+t.dataset.j][f]=t.value;else if(f=="rl"||f=="rh"){e.rr=e.rr||[8,12];e.rr[f=="rl"?0:1]=+t.value}else e[f]=t.value;
@@ -499,6 +519,8 @@ document.addEventListener("click",ev=>{
   const b=ev.target.closest("[data-a]");if(!b)return;
   const a=b.dataset.a,list=S.days[S.cur],i=+b.dataset.i,e=list&&list[i];
   if(a=="theme"){S.prefs.theme=S.prefs.theme=="light"?"dark":"light";save();view();return}
+  if(a=="palette"){if(COLOR_PALETTES[b.dataset.palette]){S.prefs.palette=b.dataset.palette;S.prefs.background="";save();view()}return}
+  if(a=="background-reset"){S.prefs.background="";save();view();return}
   if(a=="showbarcode"){if(!String(S.prefs.memberCode||"").trim()){toast(L("أدخل رقم العضوية أولًا.","Enter your membership number first."));return}document.getElementById("barcode-modal").hidden=false;drawMemberBarcode();return}
   if(a=="closebarcode"){document.getElementById("barcode-modal").hidden=true;return}
   if(a=="clearbarcode"){if(!S.prefs.memberCode)return;if(!confirm(L("مسح رقم العضوية المحفوظ على هذا الجهاز؟","Clear the membership number stored on this device?")))return;S.prefs.memberCode="";save();view();return}
